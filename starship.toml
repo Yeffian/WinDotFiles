@@ -1,0 +1,38 @@
+# My personal Starship config.
+
+add_newline = true
+
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+up_to_date = "✓"
+untracked = "🤷‍"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
+
+[nodejs]
+format = "using [NodeJS $version](bold green) "
+
+[hostname]
+ssh_only = false
+format =  "on host [$hostname](bold blue) in "
+trim_at = ".companyname.com"
+disabled = false
+
+[golang]
+format = "using [Go $version](bold cyan) "
+
+[python]
+python_binary = "python3"
+format = "using [Python $version](bold blue)"
+
+[java]
+format = "using [Java $version](bold yellow)"
+
+[character]                           
+success_symbol = "[\\$](bold green)" 
