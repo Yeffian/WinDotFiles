@@ -2,9 +2,28 @@ Clear-Host
 Write-Host All systems functional. Welcome, Jeff.
 
 
-$version = (Get-Host).Version.Major
-$host.UI.RawUI.WindowTitle = "Powershell Terminal v$version"
+$version_major = (Get-Host).Version.Major
+$version_minor = (Get-Host).Version.Minor
+$host.UI.RawUI.WindowTitle = "Powershell Terminal v$version_major.$version_minor"
 
+
+function Check-GitInstalled {
+    try {
+        git | Out-Null
+        return $true
+    } catch [System.Management.Automation.CommandNotFoundException] {
+        return $false
+    }
+}
+
+function Check-StarshipInstalled {
+    try {
+        starship | Out-Null
+        return $true
+    } catch [System.Management.Automation.CommandNotFoundException] {
+        return $false
+    }
+}
 
 # I have no clue how to make command aliases on windows so janky functions for the win ayee
 # Jokes aside some of these could probably be simplified by adding the script to PATH or doskey
@@ -26,5 +45,12 @@ function time {
     Write-Host "Current date and time is: $date" 
 }
 
-
-Invoke-Expression (&starship init powershell)
+if ( Check-GitInstalled -eq $true ) {
+    if ( Check-StarshipInstalled -eq $true ) {
+        Invoke-Expression (&starship init powershell)
+    } else {
+        Write-Error "You do not have Starship installed! Please install it from https://starship.rs/"
+    }
+} else {
+    Write-Error "You do not have Git installed! Please install it from https://git-scm.com/"
+}
