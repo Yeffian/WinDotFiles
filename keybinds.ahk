@@ -6,3 +6,7 @@
 ^+t:: Run wt
 ^+c:: Run code
 ^+i:: Run chrome
+
+; Opens system information
+#+i:: Run msinfo32
+
