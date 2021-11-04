@@ -29,10 +29,10 @@ format = "using [Go $version](bold cyan) "
 
 [python]
 python_binary = "python3"
-format = "using [Python $version](bold blue)"
+format = "using [Python $version](bold blue) "
 
 [java]
-format = "using [Java $version](bold yellow)"
+format = "using [Java $version](bold yellow) "
 
 [character]                           
 success_symbol = "[\\$](bold green)" 
