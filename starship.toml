@@ -1,7 +1,5 @@
 # My personal Starship config.
 
-add_newline = true
-
 [git_status]
 conflicted = "🏳"
 ahead = "🏎💨"
@@ -17,6 +15,11 @@ deleted = "🗑"
 
 [nodejs]
 format = "using [NodeJS $version](bold green) "
+
+[username]
+style_user = "bold blue"
+format = "as user [$user]($style)
+show_always = true
 
 [hostname]
 ssh_only = false
@@ -36,3 +39,4 @@ format = "using [Java $version](bold yellow) "
 
 [character]                           
 success_symbol = "[\\$](bold green)" 
+error_symbol = "[\\$](bold red)"
